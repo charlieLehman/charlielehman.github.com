@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Charlie Lehman</title>
-    <link>https://example.com/publication/</link>
+    <link>charlielehman.github.io/publication/</link>
     <description>Recent content in Publications on Charlie Lehman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Charlie Lehman</copyright>
     <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/publication/" rel="self" type="application/rss+xml" />
+    <atom:link href="charlielehman.github.io/publication/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Application of a Wavelet-Based Receiver for the Coherent Detection of FSK Signals</title>
-      <link>https://example.com/publication/wavelet-receiver/</link>
+      <link>charlielehman.github.io/publication/wavelet-receiver/</link>
       <pubDate>Sun, 16 Mar 2008 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/publication/wavelet-receiver/</guid>
+      <guid>charlielehman.github.io/publication/wavelet-receiver/</guid>
       <description></description>
     </item>
     
