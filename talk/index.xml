@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks on Charlie Lehman</title>
+    <link>https://example.com/talk/</link>
+    <description>Recent content in Recent &amp; Upcoming Talks on Charlie Lehman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Charlie Lehman</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/talk/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Manifold manifolds folded manifold</title>
+      <link>https://example.com/talk/spring-2017-retreat/</link>
+      <pubDate>Wed, 03 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/talk/spring-2017-retreat/</guid>
+      <description>&lt;div class=&#34;embed slideshow&#34;&gt;
+  &lt;iframe src=&#34;https://docs.google.com/presentation/d/136-yAxJ2eUZE3lGDVyZK0hw4ygXEYILkkWgtPl1CQxE/embed?start=false&amp;amp;loop=false&amp;amp;delayms=3000&#34; frameborder=&#34;0&#34; width=&#34;960&#34; height=&#34;569&#34; allowfullscreen=&#34;true&#34; mozallowfullscreen=&#34;true&#34; webkitallowfullscreen=&#34;true&#34;&gt;
+  &lt;/iframe&gt;
+  
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Robotics on Charlie Lehman</title>
+    <link>https://example.com/tags/robotics/</link>
+    <description>Recent content in Robotics on Charlie Lehman</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Charlie Lehman</copyright>
+    <lastBuildDate>Sun, 27 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/robotics/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Inverse Kinematics on OpenHubo-DRC</title>
+      <link>https://example.com/project/inverse-kinematics/</link>
+      <pubDate>Sun, 27 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/project/inverse-kinematics/</guid>
+      <description>
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;//www.youtube.com/embed/rZZTNpFdHB0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%;&#34; allowfullscreen frameborder=&#34;0&#34;&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>
