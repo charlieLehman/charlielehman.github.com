@@ -5,7 +5,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/project/mbi/</loc>
+      <loc>./project/mbi/</loc>
       <lastmod>2017-05-08T11:26:10-04:00</lastmod>
     </url>
     
@@ -14,7 +14,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/talk/spring-2017-retreat/</loc>
+      <loc>./talk/spring-2017-retreat/</loc>
       <lastmod>2017-05-03T00:00:00+00:00</lastmod>
     </url>
     
@@ -23,7 +23,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/tags/academic/</loc>
+      <loc>./tags/academic/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -32,7 +32,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/post/</loc>
+      <loc>./post/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -41,7 +41,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/publication/</loc>
+      <loc>./publication/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -50,7 +50,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/talk/</loc>
+      <loc>./talk/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
     </url>
     
@@ -59,7 +59,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/project/inverse-kinematics/</loc>
+      <loc>./project/inverse-kinematics/</loc>
       <lastmod>2016-03-27T00:00:00+00:00</lastmod>
     </url>
     
@@ -68,7 +68,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/publication/wavelet-receiver/</loc>
+      <loc>./publication/wavelet-receiver/</loc>
       <lastmod>2008-03-16T00:00:00+00:00</lastmod>
     </url>
     
@@ -77,7 +77,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/vim-markdown-preview/</loc>
+      <loc>./vim-markdown-preview/</loc>
     </url>
     
   
@@ -85,7 +85,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/publication_types/1/</loc>
+      <loc>./publication_types/1/</loc>
       <lastmod>2008-03-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -95,7 +95,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/categories/</loc>
+      <loc>./categories/</loc>
       <priority>0</priority>
     </url>
     
@@ -104,7 +104,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/</loc>
+      <loc>./</loc>
       <lastmod>2016-04-20T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -114,7 +114,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/tags/deep-learning/</loc>
+      <loc>./tags/deep-learning/</loc>
       <lastmod>2017-05-08T11:26:10-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -124,7 +124,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/tags/demo/</loc>
+      <loc>./tags/demo/</loc>
       <lastmod>2016-03-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -134,7 +134,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/project/</loc>
+      <loc>./project/</loc>
       <lastmod>2017-05-08T11:26:10-04:00</lastmod>
       <priority>0</priority>
     </url>
@@ -144,7 +144,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/publication_types/</loc>
+      <loc>./publication_types/</loc>
       <lastmod>2008-03-16T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -154,7 +154,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/tags/robotics/</loc>
+      <loc>./tags/robotics/</loc>
       <lastmod>2016-03-27T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
@@ -164,7 +164,7 @@
     
     <url>
     
-      <loc>charlielehman.github.io/tags/</loc>
+      <loc>./tags/</loc>
       <lastmod>2017-01-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
