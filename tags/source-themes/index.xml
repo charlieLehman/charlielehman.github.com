@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Source Themes | Charlie Lehman</title>
+    <link>https://charlielehman.github.io/tags/source-themes/</link>
+      <atom:link href="https://charlielehman.github.io/tags/source-themes/index.xml" rel="self" type="application/rss+xml" />
+    <description>Source Themes</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://charlielehman.github.io/img/icon-192.png</url>
+      <title>Source Themes</title>
+      <link>https://charlielehman.github.io/tags/source-themes/</link>
+    </image>
+    
+    <item>
+      <title>Implicit Background Estimation for Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Application of a Wavelet-Based Receiver for the Coherent Detection of FSK Signals</title>
+      <link>https://charlielehman.github.io/publication/application-of-a-wavelet-based-receiver-for-the-coherent-detection-of-fsk-signals/</link>
+      <pubDate>Sat, 01 Mar 2008 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/application-of-a-wavelet-based-receiver-for-the-coherent-detection-of-fsk-signals/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

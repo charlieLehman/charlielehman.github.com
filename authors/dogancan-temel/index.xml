@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dogancan Temel | Charlie Lehman</title>
+    <link>https://charlielehman.github.io/authors/dogancan-temel/</link>
+      <atom:link href="https://charlielehman.github.io/authors/dogancan-temel/index.xml" rel="self" type="application/rss+xml" />
+    <description>Dogancan Temel</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://charlielehman.github.io/img/icon-192.png</url>
+      <title>Dogancan Temel</title>
+      <link>https://charlielehman.github.io/authors/dogancan-temel/</link>
+    </image>
+    
+    <item>
+      <title>Implicit Background Estimation for Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

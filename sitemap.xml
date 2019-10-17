@@ -1,173 +1,158 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/project/mbi/</loc>
-      <lastmod>2017-05-08T11:26:10-04:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/courses/example/example1/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/talk/spring-2017-retreat/</loc>
-      <lastmod>2017-05-03T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/courses/example/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/tags/academic/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/courses/example/example2/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/post/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/publication/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/talk/example/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/talk/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/project/inverse-kinematics/</loc>
-      <lastmod>2016-03-27T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/post/weak-segmentation-cifar10/</loc>
+    <lastmod>2019-10-17T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/publication/wavelet-receiver/</loc>
-      <lastmod>2008-03-16T00:00:00+00:00</lastmod>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/post/</loc>
+    <lastmod>2019-10-17T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/vim-markdown-preview/</loc>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/authors/admin/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/publication_types/1/</loc>
-      <lastmod>2008-03-16T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/publication_types/1/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/categories/</loc>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/authors/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/</loc>
-      <lastmod>2016-04-20T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/authors/dogancan-temel/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/tags/deep-learning/</loc>
-      <lastmod>2017-05-08T11:26:10-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/authors/ghassan-alregib/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/tags/demo/</loc>
-      <lastmod>2016-03-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/project/</loc>
-      <lastmod>2017-05-08T11:26:10-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/publication_types/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/publication_types/</loc>
-      <lastmod>2008-03-16T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/publication/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/tags/robotics/</loc>
-      <lastmod>2016-03-27T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/tags/source-themes/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
   
-    
-    
-    <url>
-    
-      <loc>https://charlielehman.github.io/tags/</loc>
-      <lastmod>2017-01-01T00:00:00+00:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
+  <url>
+    <loc>https://charlielehman.github.io/tags/</loc>
+    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/post/speechworks-interview/</loc>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/project/card-counting/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tags/class-project/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tags/machine-learning/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/project/</loc>
+    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/post/visualizing-fgsm/</loc>
+    <lastmod>2018-12-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/post/multi-basis-input/</loc>
+    <lastmod>2017-01-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication/application-of-a-wavelet-based-receiver-for-the-coherent-detection-of-fsk-signals/</loc>
+    <lastmod>2008-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/authors/robert-j.-barsanti/</loc>
+    <lastmod>2008-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/courses/</loc>
+  </url>
   
 </urlset>

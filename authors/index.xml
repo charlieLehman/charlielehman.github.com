@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors | Charlie Lehman</title>
+    <link>https://charlielehman.github.io/authors/</link>
+      <atom:link href="https://charlielehman.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
+    <description>Authors</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://charlielehman.github.io/img/icon-192.png</url>
+      <title>Authors</title>
+      <link>https://charlielehman.github.io/authors/</link>
+    </image>
+    
+    <item>
+      <title></title>
+      <link>https://charlielehman.github.io/authors/admin/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/authors/admin/</guid>
+      <description>&lt;p&gt;Charlie Lehman is a Machine Learning Ph.D. student at the Georgia Tech &lt;a href=&#34;http://ghassanalregib.info&#34; target=&#34;_blank&#34;&gt;Omni Lab fro Visual Engineering and Science (OLIVES)&lt;/a&gt;.  His research interests include robustness and explainability of deep vision models. He is also an Engineering Duty Officer with the U.S. Navy Reserves, where he specializes in the maintenance and repair of surface vessels.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dogancan Temel</title>
+      <link>https://charlielehman.github.io/authors/dogancan-temel/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/authors/dogancan-temel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ghassan AlRegib</title>
+      <link>https://charlielehman.github.io/authors/ghassan-alregib/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/authors/ghassan-alregib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Robert J. Barsanti</title>
+      <link>https://charlielehman.github.io/authors/robert-j.-barsanti/</link>
+      <pubDate>Sat, 01 Mar 2008 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/authors/robert-j.-barsanti/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

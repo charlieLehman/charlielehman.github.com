@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Charlie Lehman</title>
+    <title>Posts | Charlie Lehman</title>
     <link>https://charlielehman.github.io/post/</link>
-    <description>Recent content in Posts on Charlie Lehman</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&amp;copy; 2017 Charlie Lehman</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="/post/" rel="self" type="application/rss+xml" />
+      <atom:link href="https://charlielehman.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 17 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://charlielehman.github.io/img/icon-192.png</url>
+      <title>Posts</title>
+      <link>https://charlielehman.github.io/post/</link>
+    </image>
+    
+    <item>
+      <title>Learning to segment CIFAR10</title>
+      <link>https://charlielehman.github.io/post/weak-segmentation-cifar10/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/post/weak-segmentation-cifar10/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Speechworks Interview</title>
+      <link>https://charlielehman.github.io/post/speechworks-interview/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/post/speechworks-interview/</guid>
+      <description>&lt;p&gt;I was interviewed by Julie Lindsay from Speechworks for a &lt;a href=&#34;https://www.speechworks.net/podcast/podcast-the-entrepreneurs-secret-why-a-perfect-pitch-isnt-just-about-ideas/&#34;&gt;podcast&lt;/a&gt; regarding my experiences starting ConvexMind during the CreateX Startup Launch last Summer. There is also an &lt;a href=&#34;https://www.speechworks.net/the-entrepreneurs-secret-why-a-perfect-pitch-isnt-just-about-ideas/&#34;&gt;article&lt;/a&gt; that summarizes the main points we discussed.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Visualizing Adversarial Attacks</title>
+      <link>https://charlielehman.github.io/post/visualizing-fgsm/</link>
+      <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/post/visualizing-fgsm/</guid>
+      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;orig.png&#34; alt=&#34;Original&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;img src=&#34;fgsm.png&#34; alt=&#34;FGSM&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;img src=&#34;orig-eqhist.png&#34; alt=&#34;Original with CLAHE&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;figure&gt;&lt;img src=&#34;fgsm-eqhist.png&#34; alt=&#34;FGSM with CLAHE&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Multi-Basis Input Convolutional Neural Network</title>
+      <link>https://charlielehman.github.io/post/multi-basis-input/</link>
+      <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/post/multi-basis-input/</guid>
+      <description>&lt;p&gt;I spent some time going through Tensorflow tutorials and was curious what the learned kernels in the convolution layers looked like. After getting a visulization to work for regular RGB input images from CIFAR10, I transformed and created copies of the dataset using other representations: FFT, DCT, and HSV.  The same model used to train the RGB inputs was used and similar performance was achieved.&lt;/p&gt;
+
+&lt;p&gt;If you would like to learn more you can implement it yourself &lt;a href=&#34;https://github.com/charlielehman/mbi&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
   </channel>
 </rss>
