@@ -229,10 +229,27 @@ for epoch in tqdm(range(num_epochs)):
       <link>https://charlielehman.github.io/post/visualizing-fgsm/</link>
       <pubDate>Thu, 13 Dec 2018 00:00:00 +0000</pubDate>
       <guid>https://charlielehman.github.io/post/visualizing-fgsm/</guid>
-      <description>&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;orig.png&#34; alt=&#34;Original&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
+      <description>&lt;h2 id=&#34;pixelwise-classifiers-with-largemargin-gaussian-mixture-representation&#34;&gt;Pixelwise classifiers with Large-margin Gaussian Mixture representation&lt;/h2&gt;
+
+&lt;p&gt;These are several visualizations I dug up from really really messy code, which I won&#39;t share just yet. This was some quick and dirty work to test out the feasibility of an idea: I wanted to visualize the effects on the representation space at each pixel during an &lt;a href=&#34;https://arxiv.org/abs/1412.6572&#34;&gt;FGSM&lt;/a&gt; attack.  I trained a &lt;a href=&#34;https://charlielehman.github.io/post/weak-segmentation-cifar10&#34;&gt;weak segmentor model&lt;/a&gt; with the representation space modified for &lt;a href=&#34;https://arxiv.org/abs/1803.02988&#34;&gt;L-GM&lt;/a&gt;.  I found L-GM useful because it provides a sensible way of directly learning a representation that can be visualized without further solving an additional optimization problem (looking at you &lt;a href=&#34;www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf&#34;&gt;T-SNE&lt;/a&gt;!).  Not to mention you can project new points into it, which was really central to my purpose of observing the effects of an adversarial attack.
+&lt;figure&gt;&lt;img src=&#34;orig.png&#34; alt=&#34;Original&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
+This is what a normal input from the CIFAR10 test set looks like.&lt;/p&gt;
+
+&lt;p&gt;The max-softmax, which is a &lt;a href=&#34;https://github.com/hendrycks/error-detection&#34;&gt;good baseline&lt;/a&gt; for confidence in detection tasks drops from 1.00 to 0.72 after adversarial modification. I also computed a confidence term that looked for regions of &amp;quot;uncertainty&amp;quot;, which I am using loosely.  Specifically I was interested in regions close to 0.5 when using sigmoid on the raw logits and the logits post &lt;a href=&#34;https://arxiv.org/abs/1503.02531&#34;&gt;temperature scaling&lt;/a&gt;. I saw that when the model is behaving well there is a uniform expansion of the uncertain regions spatially resulting in little overlap between the raw and temperature scaled regions.  So by multiplying both taking the spatial average I can determine the overall uncertainy and by additive inverse get a confidence measure for observing adversarial images spatially.
 &lt;figure&gt;&lt;img src=&#34;fgsm.png&#34; alt=&#34;FGSM&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;figure&gt;&lt;img src=&#34;orig-eqhist.png&#34; alt=&#34;Original with CLAHE&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;
-&lt;figure&gt;&lt;img src=&#34;fgsm-eqhist.png&#34; alt=&#34;FGSM with CLAHE&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+This is what an untargeted FGSM attack looks like.&lt;/p&gt;
+
+&lt;p&gt;In this case it appears that FGSM just messed with the image&#39;s high contrast regions on the cab of the truck.  My confidence measure drops to 0.64 from 0.92, but the detection still clears the 0 threshold sigmoid learned.&lt;/p&gt;
+
+&lt;p&gt;When &lt;a href=&#34;https://ieeexplore.ieee.org/document/6968381&#34;&gt;CLAHE&lt;/a&gt; is applied to both images we can see some interesting effects.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;orig-eqhist.png&#34; alt=&#34;Original with CLAHE&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;On the original image, my confidence measure drops from 0.92 to 0.84 and the pixel embedding spreads out far more.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;fgsm-eqhist.png&#34; alt=&#34;FGSM with CLAHE&#34; title=&#34;Original Truck Image&#34;&gt;&lt;figcaption&gt;Original Truck Image&lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;On the FGSM image, my confidence measure plummets from 0.64 to 0.21.  Interestingly, the pixel embedding stretches back toward truck.&lt;/p&gt;
 </description>
     </item>
     

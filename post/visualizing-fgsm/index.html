@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Original Truck Image Original Truck Image Original Truck Image Original Truck Image">
+  <meta name="description" content="Pixelwise classifiers with Large-margin Gaussian Mixture representation These are several visualizations I dug up from really really messy code, which I won&#39;t share just yet. This was some quick and dirty work to test out the feasibility of an idea: I wanted to visualize the effects on the representation space at each pixel during an FGSM attack. I trained a weak segmentor model with the representation space modified for L-GM. I found L-GM useful because it provides a sensible way of directly learning a representation that can be visualized without further solving an additional optimization problem (looking at you T-SNE!">
 
   
   <link rel="alternate" hreflang="en-us" href="https://charlielehman.github.io/post/visualizing-fgsm/">
@@ -108,15 +108,16 @@
   
   
     
+    
   
   
-  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:card" content="summary">
   
   <meta property="og:site_name" content="Charlie Lehman">
   <meta property="og:url" content="https://charlielehman.github.io/post/visualizing-fgsm/">
   <meta property="og:title" content="Visualizing Adversarial Attacks | Charlie Lehman">
-  <meta property="og:description" content="Original Truck Image Original Truck Image Original Truck Image Original Truck Image"><meta property="og:image" content="https://charlielehman.github.io/post/visualizing-fgsm/featured.png">
-  <meta property="twitter:image" content="https://charlielehman.github.io/post/visualizing-fgsm/featured.png"><meta property="og:locale" content="en-us">
+  <meta property="og:description" content="Pixelwise classifiers with Large-margin Gaussian Mixture representation These are several visualizations I dug up from really really messy code, which I won&#39;t share just yet. This was some quick and dirty work to test out the feasibility of an idea: I wanted to visualize the effects on the representation space at each pixel during an FGSM attack. I trained a weak segmentor model with the representation space modified for L-GM. I found L-GM useful because it provides a sensible way of directly learning a representation that can be visualized without further solving an additional optimization problem (looking at you T-SNE!"><meta property="og:image" content="https://charlielehman.github.io/img/icon-192.png">
+  <meta property="twitter:image" content="https://charlielehman.github.io/img/icon-192.png"><meta property="og:locale" content="en-us">
   
     
       <meta property="article:published_time" content="2018-12-13T00:00:00&#43;00:00">
@@ -151,10 +152,6 @@
   },
   "headline": "Visualizing Adversarial Attacks",
   
-  "image": [
-    "https://charlielehman.github.io/post/visualizing-fgsm/featured.png"
-  ],
-  
   "datePublished": "2018-12-13T00:00:00Z",
   "dateModified": "2018-12-13T00:00:00Z",
   
@@ -171,7 +168,7 @@
       "url": "https://charlielehman.github.io/img/icon-512.png"
     }
   },
-  "description": "Original Truck Image Original Truck Image Original Truck Image Original Truck Image"
+  "description": "Pixelwise classifiers with Large-margin Gaussian Mixture representation These are several visualizations I dug up from really really messy code, which I won't share just yet. This was some quick and dirty work to test out the feasibility of an idea: I wanted to visualize the effects on the representation space at each pixel during an FGSM attack. I trained a weak segmentor model with the representation space modified for L-GM. I found L-GM useful because it provides a sensible way of directly learning a representation that can be visualized without further solving an additional optimization problem (looking at you T-SNE!"
 }
 </script>
 
@@ -516,24 +513,18 @@
 
 
 
-
-
-
-
-
-
-
+  
 
   
   
-
-
+  
 <div class="article-container pt-3">
   <h1>Visualizing Adversarial Attacks</h1>
 
   
 
   
+    
 
 
 
@@ -557,7 +548,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    2 min read
   </span>
   
 
@@ -659,29 +650,22 @@
 
 </div>
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-<div class="article-header container-fluid featured-image-wrapper mt-4 mb-4" style="max-width: 813px; max-height: 706px;">
-  <div style="position: relative">
-    <img src="/post/visualizing-fgsm/featured.png" alt="" class="featured-image">
     
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </div>
 
 
@@ -689,10 +673,27 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p><figure><img src="orig.png" alt="Original" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure>
+      <h2 id="pixelwise-classifiers-with-largemargin-gaussian-mixture-representation">Pixelwise classifiers with Large-margin Gaussian Mixture representation</h2>
+
+<p>These are several visualizations I dug up from really really messy code, which I won't share just yet. This was some quick and dirty work to test out the feasibility of an idea: I wanted to visualize the effects on the representation space at each pixel during an <a href="https://arxiv.org/abs/1412.6572">FGSM</a> attack.  I trained a <a href="https://charlielehman.github.io/post/weak-segmentation-cifar10">weak segmentor model</a> with the representation space modified for <a href="https://arxiv.org/abs/1803.02988">L-GM</a>.  I found L-GM useful because it provides a sensible way of directly learning a representation that can be visualized without further solving an additional optimization problem (looking at you <a href="www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">T-SNE</a>!).  Not to mention you can project new points into it, which was really central to my purpose of observing the effects of an adversarial attack.
+<figure><img src="orig.png" alt="Original" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure>
+This is what a normal input from the CIFAR10 test set looks like.</p>
+
+<p>The max-softmax, which is a <a href="https://github.com/hendrycks/error-detection">good baseline</a> for confidence in detection tasks drops from 1.00 to 0.72 after adversarial modification. I also computed a confidence term that looked for regions of &quot;uncertainty&quot;, which I am using loosely.  Specifically I was interested in regions close to 0.5 when using sigmoid on the raw logits and the logits post <a href="https://arxiv.org/abs/1503.02531">temperature scaling</a>. I saw that when the model is behaving well there is a uniform expansion of the uncertain regions spatially resulting in little overlap between the raw and temperature scaled regions.  So by multiplying both taking the spatial average I can determine the overall uncertainy and by additive inverse get a confidence measure for observing adversarial images spatially.
 <figure><img src="fgsm.png" alt="FGSM" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure>
-<figure><img src="orig-eqhist.png" alt="Original with CLAHE" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure>
-<figure><img src="fgsm-eqhist.png" alt="FGSM with CLAHE" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure></p>
+This is what an untargeted FGSM attack looks like.</p>
+
+<p>In this case it appears that FGSM just messed with the image's high contrast regions on the cab of the truck.  My confidence measure drops to 0.64 from 0.92, but the detection still clears the 0 threshold sigmoid learned.</p>
+
+<p>When <a href="https://ieeexplore.ieee.org/document/6968381">CLAHE</a> is applied to both images we can see some interesting effects.</p>
+
+<p><figure><img src="orig-eqhist.png" alt="Original with CLAHE" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure></p>
+
+<p>On the original image, my confidence measure drops from 0.92 to 0.84 and the pixel embedding spreads out far more.</p>
+
+<p><figure><img src="fgsm-eqhist.png" alt="FGSM with CLAHE" title="Original Truck Image"><figcaption>Original Truck Image</figcaption></figure></p>
+
+<p>On the FGSM image, my confidence measure plummets from 0.64 to 0.21.  Interestingly, the pixel embedding stretches back toward truck.</p>
 
     </div>
 
