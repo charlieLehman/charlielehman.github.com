@@ -106,6 +106,140 @@
     </item>
     
     <item>
+      <title>Visualizing Softmax</title>
+      <link>https://charlielehman.github.io/post/visualizing-tempscaling/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/post/visualizing-tempscaling/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations.  I want to share a simple technique to visualize outputs for SoftMax-based classifiers.  As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; and model calibration &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:4&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:4&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;softmax&#34;&gt;Softmax&lt;/h2&gt;
+
+&lt;p&gt;For deep neural networks (DNN) the representation is related to the construction of the optimization objective.
+In the case of DNN image classifiers the most common objective is to minimize the softmax cross entropy between the model output, &lt;span  class=&#34;math&#34;&gt;\(\boldsymbol{v}\in\mathbb{R}^k\)&lt;/span&gt; and a one-hot target, $\boldsymbol{y}$.
+In order to compute the cross entropy, &lt;span  class=&#34;math&#34;&gt;\(\boldsymbol{v}\)&lt;/span&gt; must first be projected onto a simplex to become &amp;quot;probability-like&amp;quot;.
+&lt;span  class=&#34;math&#34;&gt;\(
+\boldsymbol{\sigma}:\mathbb{R}^k\rightarrow\boldsymbol{\Delta}^{k-1}\\
+\)&lt;/span&gt;
+The resulting vector, $\boldsymbol{q}\in\boldsymbol{\Delta}^{k-1}$, is the output of the softmax operation, $\boldsymbol{\sigma}$.
+To simplify notation, let &lt;span  class=&#34;math&#34;&gt;\(\mathbf{e}^{\boldsymbol{v}}= \left(\begin{smallmatrix}e^{v_0}&amp; e^{v_1}&amp;\dots&amp;e^{v_{k-1}}\end{smallmatrix}\right)\)&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\boldsymbol{q} = \frac{\mathbf{e}^{\boldsymbol{v}}}{\sum^{k-1}_{i=0} e^{v_i}} 
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&#39;s a visualization of SoftMax for the $k=2$ case.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./softmax.gif&#34; alt=&#34;gif&#34;&gt;&lt;/figure&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+&lt;video controls &gt;
+  &lt;source src=&#34;softmax.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;&lt;/p&gt;
+
+&lt;p&gt;It is then possible to assign a confidence, $c$, to a prediction by selecting the maximum component $c = \max(\boldsymbol{q})$.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./VisualizingTemperatureScaling_12_0.png&#34; alt=&#34;png&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;visualizing-softmax-at-higher-dimensions&#34;&gt;Visualizing Softmax at higher dimensions&lt;/h2&gt;
+
+&lt;p&gt;My research mostly concerns classification or detection problems for images, which tends to involve more than 2 classes.  In order to visualize the behavior of softmax at $k&amp;gt;2$ we want to stay away from techniques that rely on the data directly (t-SNE, UMAP, PCA, etc.) and instead use a technique that can capture the macro behaviors in the representation space by prior construction.  Doing this is likely not without loss of information, because data-driven methods seek to find some transformation that preserves information.&lt;/p&gt;
+
+&lt;p&gt;The first thing to do is to inspect the space to which softmax projects $\boldsymbol v$, the $(k-1)$-simplex  $\boldsymbol{\Delta}^{k-1}$, to better understand some useful properties for projection.  Loosely defined, a simplex is the generalization of the triangle.  In the case of the triangle it would be a 2-simplex.  Below I generated a tikz visualization of the 0 to 3 simplexes:&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./VisualizingTemperatureScaling_15_0.svg&#34; alt=&#34;svg&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;Take note of the graphical structure of simplexes as it will come into play in later discussion.  Now for a more formal definition of a simplex with regard to our softmax projection, &lt;span  class=&#34;math&#34;&gt;\(\boldsymbol{\sigma}:\mathbb{R}^k\rightarrow\boldsymbol{\Delta}^{k-1}\)&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;As we previously defined, $\mathbf{q}$ is the resulting projected vector that follows the definition,&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\{\mathbf{q}\in\mathbb{R}^k:\sum_i q_i=1, q_i\geq 0, i=0,\dots,k-1\},
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;which allows it to be used as a probability distribution.  The fact that all of the information is projected into the positive orthant is also useful as now every component, $q_i\in\mathbf{q}$, can be used to form a star-like graph about the origin:&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./VisualizingTemperatureScaling_17_0.svg&#34; alt=&#34;svg&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;p&gt;This projection is just a way to &lt;em&gt;view&lt;/em&gt; these components in such a way at arbitrary dimensions such that the angle between each when projected is equal.  And thus, forevermore throughout this post, such a technique shall be called the Equiradial Projection (EqR).&lt;/p&gt;
+
+&lt;p&gt;Where the angle between components is&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\theta_i = \frac{2\pi (i+0.5)}{k}, \quad i=\{0,\dots,k-1\}
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;and the projection matrix is&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\boldsymbol{T} = \begin{pmatrix}
+\sin(\theta_0) &amp;\sin(\theta_1) &amp;\cdots &amp; \sin(\theta_{k-1}) \\ 
+\cos(\theta_0) &amp;\cos(\theta_1) &amp;\cdots &amp; \cos(\theta_{k-1}) \\ 
+\end{pmatrix},\\ 
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;making $\boldsymbol{T}\boldsymbol{q}$ just the weighted average of the projected components.  This is where distortions and loss of information come into play.  The derivation of the projection is based on the assumption that the space is star-like, meaning that each component occurs in isolation.  We know that this is in fact not the case most of the time as $\boldsymbol{q}$ by definition is a probability distribution making all but $k$ cases violate this assumption.&lt;/p&gt;
+
+&lt;p&gt;Now that this loss of information and distortion is acknowledged we need to discuss rotation. When the order of the components changes in the projection the &lt;em&gt;view&lt;/em&gt; is just rotating about another component orthoganally.  This can provide some limited ability to minimize distortion by placing the most dependent subsets of components adjacent.&lt;/p&gt;
+
+&lt;h2 id=&#34;temperature-scaling&#34;&gt;Temperature Scaling&lt;/h2&gt;
+
+&lt;p&gt;Hinton et al. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; introduced technique used for knowledge transfer called &amp;quot;Knowledge Distillation&amp;quot; that increases the &lt;em&gt;temperature&lt;/em&gt;, $T$, on $\boldsymbol{v}$ in order to generate a &lt;em&gt;softer&lt;/em&gt; representation out of softmax.  In &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;, Guo et al,  refers to the same technique as &amp;quot;Temperature Scaling&amp;quot;:&lt;/p&gt;
+
+&lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
+\boldsymbol{q}_{temp} = \frac{\mathbf{e}^{\boldsymbol{v}/T}}{\sum^{k-1}_{i=0} e^{v_i/T}} , \qquad T\in\mathbb{R}^+
+\]&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;This simple technique has proven to be incredibly useful beyond the initial proposed use in knowledge transfer. Guo et al. demonstrated its utility in calibrating deep models for image classification. In both &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:4&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:4&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;, they use temperature scaling to great effect in detecting out-of-distribution samples.&lt;/p&gt;
+
+&lt;p&gt;And without further ado, let&#39;s visualize temperature scaled softmax outputs in arbitrary dimensions!&lt;/p&gt;
+
+&lt;p&gt;For $\boldsymbol{v}$, I just generated random vectors in the desired dimension and visualized the projection at a variation of $T$.  Each vector is colored according to the confidence at that location on the projection.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./tempscale_10.gif&#34; alt=&#34;gif&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;citations&#34;&gt;Citations&lt;/h2&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:4&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:1&#34;&gt;G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:4&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Learning to segment CIFAR10</title>
       <link>https://charlielehman.github.io/post/weak-segmentation-cifar10/</link>
       <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
