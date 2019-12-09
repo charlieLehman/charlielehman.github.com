@@ -19,7 +19,7 @@
       <guid>https://charlielehman.github.io/post/visualizing-tempscaling/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations.  I want to share a simple technique to visualize outputs for SoftMax-based classifiers.  As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; and model calibration &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:4&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:4&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations.  I want to share a simple technique to visualize outputs for SoftMax-based classifiers.  As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer [1] and model calibration [2][3][4].&lt;/p&gt;
 
 &lt;h2 id=&#34;softmax&#34;&gt;Softmax&lt;/h2&gt;
 
@@ -105,13 +105,13 @@ To simplify notation, let &lt;span  class=&#34;math&#34;&gt;\(\mathbf{e}^{\bolds
 
 &lt;h2 id=&#34;temperature-scaling&#34;&gt;Temperature Scaling&lt;/h2&gt;
 
-&lt;p&gt;Hinton et al. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:1&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:1&#34;&gt;5&lt;/a&gt;&lt;/sup&gt; introduced technique used for knowledge transfer called &amp;quot;Knowledge Distillation&amp;quot; that increases the &lt;em&gt;temperature&lt;/em&gt;, $T$, on $\boldsymbol{v}$ in order to generate a &lt;em&gt;softer&lt;/em&gt; representation out of softmax.  In &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:2&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:2&#34;&gt;6&lt;/a&gt;&lt;/sup&gt;, Guo et al,  refers to the same technique as &amp;quot;Temperature Scaling&amp;quot;:&lt;/p&gt;
+&lt;p&gt;Hinton et al. [1] introduced technique used for knowledge transfer called &amp;quot;Knowledge Distillation&amp;quot; that increases the &lt;em&gt;temperature&lt;/em&gt;, $T$, on $\boldsymbol{v}$ in order to generate a &lt;em&gt;softer&lt;/em&gt; representation out of softmax.  In [2], Guo et al,  refers to the same technique as &amp;quot;Temperature Scaling&amp;quot;:&lt;/p&gt;
 
 &lt;p&gt;&lt;span  class=&#34;math&#34;&gt;\[
 \boldsymbol{q}_{temp} = \frac{\mathbf{e}^{\boldsymbol{v}/T}}{\sum^{k-1}_{i=0} e^{v_i/T}} , \qquad T\in\mathbb{R}^+
 \]&lt;/span&gt;&lt;/p&gt;
 
-&lt;p&gt;This simple technique has proven to be incredibly useful beyond the initial proposed use in knowledge transfer. Guo et al. demonstrated its utility in calibrating deep models for image classification. In both &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:3&#34;&gt;7&lt;/a&gt;&lt;/sup&gt;&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:4&#34;&gt;&lt;a class=&#34;footnote&#34; href=&#34;#fn:4&#34;&gt;8&lt;/a&gt;&lt;/sup&gt;, they use temperature scaling to great effect in detecting out-of-distribution samples.&lt;/p&gt;
+&lt;p&gt;This simple technique has proven to be incredibly useful beyond the initial proposed use in knowledge transfer. Guo et al. demonstrated its utility in calibrating deep models for image classification. In both [3][4], they use temperature scaling to great effect in detecting out-of-distribution samples.&lt;/p&gt;
 
 &lt;p&gt;And without further ado, let&#39;s visualize temperature scaled softmax outputs in arbitrary dimensions!&lt;/p&gt;
 
@@ -120,29 +120,14 @@ To simplify notation, let &lt;span  class=&#34;math&#34;&gt;\(\mathbf{e}^{\bolds
 &lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./tempscale_10.gif&#34; alt=&#34;gif&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;citations&#34;&gt;Citations&lt;/h2&gt;
-&lt;div class=&#34;footnotes&#34;&gt;
 
-&lt;hr&gt;
+&lt;p&gt;[1]: G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li id=&#34;fn:1&#34;&gt;G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:4&#34;&gt;S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:4&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:1&#34;&gt;G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:1&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:2&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:4&#34;&gt;S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:4&#34;&gt;&lt;sup&gt;^&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
+&lt;p&gt;[2]: C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.&lt;/p&gt;
+
+&lt;p&gt;[3]: K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.&lt;/p&gt;
+
+&lt;p&gt;[4]: S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.&lt;/p&gt;
 </description>
     </item>
     

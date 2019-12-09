@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Introduction I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations. I want to share a simple technique to visualize outputs for SoftMax-based classifiers. As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer 1 and model calibration 234.">
+  <meta name="description" content="Introduction I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations. I want to share a simple technique to visualize outputs for SoftMax-based classifiers. As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer [1] and model calibration [2][3][4].">
 
   
   <link rel="alternate" hreflang="en-us" href="https://charlielehman.github.io/post/visualizing-tempscaling/">
@@ -115,7 +115,7 @@
   <meta property="og:site_name" content="Charlie Lehman">
   <meta property="og:url" content="https://charlielehman.github.io/post/visualizing-tempscaling/">
   <meta property="og:title" content="Visualizing Softmax | Charlie Lehman">
-  <meta property="og:description" content="Introduction I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations. I want to share a simple technique to visualize outputs for SoftMax-based classifiers. As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer 1 and model calibration 234."><meta property="og:image" content="https://charlielehman.github.io/post/visualizing-tempscaling/featured.gif">
+  <meta property="og:description" content="Introduction I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations. I want to share a simple technique to visualize outputs for SoftMax-based classifiers. As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer [1] and model calibration [2][3][4]."><meta property="og:image" content="https://charlielehman.github.io/post/visualizing-tempscaling/featured.gif">
   <meta property="twitter:image" content="https://charlielehman.github.io/post/visualizing-tempscaling/featured.gif"><meta property="og:locale" content="en-us">
   
     
@@ -171,7 +171,7 @@
       "url": "https://charlielehman.github.io/img/icon-512.png"
     }
   },
-  "description": "Introduction I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations. I want to share a simple technique to visualize outputs for SoftMax-based classifiers. As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer 1 and model calibration 234."
+  "description": "Introduction I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations. I want to share a simple technique to visualize outputs for SoftMax-based classifiers. As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer [1] and model calibration [2][3][4]."
 }
 </script>
 
@@ -729,7 +729,7 @@ if (!doNotTrack) {
     <div class="article-style">
       <h2 id="introduction">Introduction</h2>
 
-<p>I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations.  I want to share a simple technique to visualize outputs for SoftMax-based classifiers.  As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer <sup class="footnote-ref" id="fnref:1"><a class="footnote" href="#fn:1">1</a></sup> and model calibration <sup class="footnote-ref" id="fnref:2"><a class="footnote" href="#fn:2">2</a></sup><sup class="footnote-ref" id="fnref:3"><a class="footnote" href="#fn:3">3</a></sup><sup class="footnote-ref" id="fnref:4"><a class="footnote" href="#fn:4">4</a></sup>.</p>
+<p>I have been faced with several situations where visualizing the output of a trained classifier has helped explain some interesting behaviors that are present within learned representations.  I want to share a simple technique to visualize outputs for SoftMax-based classifiers.  As an example, I will walk through the process of visualizing and animating the effects of Temperature Scaling, which is a simple and useful technique for knowledge transfer [1] and model calibration [2][3][4].</p>
 
 <h2 id="softmax">Softmax</h2>
 
@@ -815,13 +815,13 @@ To simplify notation, let <span  class="math">\(\mathbf{e}^{\boldsymbol{v}}= \le
 
 <h2 id="temperature-scaling">Temperature Scaling</h2>
 
-<p>Hinton et al. <sup class="footnote-ref" id="fnref:1"><a class="footnote" href="#fn:1">5</a></sup> introduced technique used for knowledge transfer called &quot;Knowledge Distillation&quot; that increases the <em>temperature</em>, $T$, on $\boldsymbol{v}$ in order to generate a <em>softer</em> representation out of softmax.  In <sup class="footnote-ref" id="fnref:2"><a class="footnote" href="#fn:2">6</a></sup>, Guo et al,  refers to the same technique as &quot;Temperature Scaling&quot;:</p>
+<p>Hinton et al. [1] introduced technique used for knowledge transfer called &quot;Knowledge Distillation&quot; that increases the <em>temperature</em>, $T$, on $\boldsymbol{v}$ in order to generate a <em>softer</em> representation out of softmax.  In [2], Guo et al,  refers to the same technique as &quot;Temperature Scaling&quot;:</p>
 
 <p><span  class="math">\[
 \boldsymbol{q}_{temp} = \frac{\mathbf{e}^{\boldsymbol{v}/T}}{\sum^{k-1}_{i=0} e^{v_i/T}} , \qquad T\in\mathbb{R}^+
 \]</span></p>
 
-<p>This simple technique has proven to be incredibly useful beyond the initial proposed use in knowledge transfer. Guo et al. demonstrated its utility in calibrating deep models for image classification. In both <sup class="footnote-ref" id="fnref:3"><a class="footnote" href="#fn:3">7</a></sup><sup class="footnote-ref" id="fnref:4"><a class="footnote" href="#fn:4">8</a></sup>, they use temperature scaling to great effect in detecting out-of-distribution samples.</p>
+<p>This simple technique has proven to be incredibly useful beyond the initial proposed use in knowledge transfer. Guo et al. demonstrated its utility in calibrating deep models for image classification. In both [3][4], they use temperature scaling to great effect in detecting out-of-distribution samples.</p>
 
 <p>And without further ado, let's visualize temperature scaled softmax outputs in arbitrary dimensions!</p>
 
@@ -830,29 +830,14 @@ To simplify notation, let <span  class="math">\(\mathbf{e}^{\boldsymbol{v}}= \le
 <p><figure><img src="./tempscale_10.gif" alt="gif"></figure></p>
 
 <h2 id="citations">Citations</h2>
-<div class="footnotes">
 
-<hr>
+<p>[1]: G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.</p>
 
-<ol>
-<li id="fn:1">G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.
- <a class="footnote-return" href="#fnref:1"><sup>^</sup></a></li>
-<li id="fn:2">C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.
- <a class="footnote-return" href="#fnref:2"><sup>^</sup></a></li>
-<li id="fn:3">K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.
- <a class="footnote-return" href="#fnref:3"><sup>^</sup></a></li>
-<li id="fn:4">S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.
- <a class="footnote-return" href="#fnref:4"><sup>^</sup></a></li>
-<li id="fn:1">G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.
- <a class="footnote-return" href="#fnref:1"><sup>^</sup></a></li>
-<li id="fn:2">C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.
- <a class="footnote-return" href="#fnref:2"><sup>^</sup></a></li>
-<li id="fn:3">K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.
- <a class="footnote-return" href="#fnref:3"><sup>^</sup></a></li>
-<li id="fn:4">S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.
- <a class="footnote-return" href="#fnref:4"><sup>^</sup></a></li>
-</ol>
-</div>
+<p>[2]: C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.</p>
+
+<p>[3]: K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.</p>
+
+<p>[4]: S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.</p>
 
     </div>
 
