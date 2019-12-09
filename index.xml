@@ -131,25 +131,7 @@ To simplify notation, let &lt;span  class=&#34;math&#34;&gt;\(\mathbf{e}^{\bolds
 
 &lt;p&gt;Here&#39;s a visualization of SoftMax for the $k=2$ case.&lt;/p&gt;
 
-&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./softmax.gif&#34; alt=&#34;gif&#34;&gt;&lt;/figure&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-&lt;video controls &gt;
-  &lt;source src=&#34;softmax.mp4&#34; type=&#34;video/mp4&#34;&gt;
-&lt;/video&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;&lt;img src=&#34;./softmax.gif&#34; alt=&#34;gif&#34;&gt;&lt;/figure&gt;&lt;/p&gt;
 
 &lt;p&gt;It is then possible to assign a confidence, $c$, to a prediction by selecting the maximum component $c = \max(\boldsymbol{q})$.&lt;/p&gt;
 
