@@ -214,13 +214,13 @@ To simplify notation, let &lt;span  class=&#34;math&#34;&gt;\(\mathbf{e}^{\bolds
 
 &lt;h2 id=&#34;citations&#34;&gt;Citations&lt;/h2&gt;
 
-&lt;p&gt;[1]: G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/1503.02531&#34;&gt;1&lt;/a&gt;: G. E. Hinton, O. Vinyals, and J. Dean, “Distilling the knowledge in a neural network,” ArXiv, vol. abs/1503.02531, 2015.&lt;/p&gt;
 
-&lt;p&gt;[2]: C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://geoffpleiss.com/nn_calibration&#34;&gt;2&lt;/a&gt;: C. Guo, G. Pleiss, Y. Sun, and K. Q. Weinberger, “On calibration of modern neural networks,” in Proceedings of the 34th international conference on machine learning-volume 70, 2017, pp. 1321–1330.&lt;/p&gt;
 
-&lt;p&gt;[3]: K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://openreview.net/forum?id=ryiAv2xAZ&#34;&gt;3&lt;/a&gt;: K. Lee, H. Lee, K. Lee, and J. Shin, “Training confidence-calibrated classifiers for detecting out-of-distribution samples,” in International conference on learning representations, 2018.&lt;/p&gt;
 
-&lt;p&gt;[4]: S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://openreview.net/forum?id=H1VGkIxRZ&#34;&gt;4&lt;/a&gt;: S. Liang, Y. Li, and R. Srikant, “Enhancing the reliability of out-of-distribution image detection in neural networks,” in International conference on learning representations, 2018.&lt;/p&gt;
 </description>
     </item>
     
