@@ -5,9 +5,9 @@
     <link>https://charlielehman.github.io/project/</link>
       <atom:link href="https://charlielehman.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Projects</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 27 Feb 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://charlielehman.github.io/img/icon-192.png</url>
+      <url>https://charlielehman.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Projects</title>
       <link>https://charlielehman.github.io/project/</link>
     </image>
@@ -17,15 +17,10 @@
       <link>https://charlielehman.github.io/project/card-counting/</link>
       <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
       <guid>https://charlielehman.github.io/project/card-counting/</guid>
-      <description>
-
-&lt;p&gt;I worked with Gukyeong Kwon and Jinsol Lee on this project for our Convex Optimization course.  It was a neat project that really hits home that even if you can count cards perfectly&amp;hellip;the deck isn&amp;rsquo;t stacked in your favor.  If you want to try it the code is linked above or if you want to run blackjacksim directly install it with:&lt;/p&gt;
-
+      <description>&lt;p&gt;I worked with Gukyeong Kwon and Jinsol Lee on this project for our Convex Optimization course.  It was a neat project that really hits home that even if you can count cards perfectly&amp;hellip;the deck isn&amp;rsquo;t stacked in your favor.  If you want to try it the code is linked above or if you want to run blackjacksim directly install it with:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pip3 install git+https://github.com/charlieLehman/blackjacksim
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.metrics import confusion_matrix
 from sklearn.utils.multiclass import unique_labels
 import matplotlib
@@ -91,9 +86,7 @@ def plot_confusion_matrix(y_true, y_pred, classes,
     fig.tight_layout()
     return ax
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h1 id=&#34;comparison-of-house-rules&#34;&gt;Comparison of House Rules&lt;/h1&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from blackjacksim.simulations import Game
 from blackjacksim.entities import Shoe
 import matplotlib
@@ -134,16 +127,11 @@ for house in pbar:
 sns.lineplot(x=&#39;Round&#39;, y=&#39;Pool&#39;, hue=&#39;House&#39;, data=df)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;HBox(children=(IntProgress(value=0, max=4), HTML(value=&#39;&#39;)))
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_5_2.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_5_2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;modeling-action-strategy&#34;&gt;Modeling Action Strategy&lt;/h1&gt;
-
 &lt;h2 id=&#34;build-board-state-matrix-a-and-action-vector-b&#34;&gt;Build board state matrix A and action vector b&lt;/h2&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from blackjacksim.entities import Deck, Hand
 from blackjacksim.strategies import basic
 import itertools
@@ -171,12 +159,9 @@ for  a, _b in t:
 A = np.stack(A)
 b = np.array(b)
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;1001
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2 id=&#34;solve-least-squares&#34;&gt;Solve Least Squares&lt;/h2&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import seaborn as sns
 from jupyterthemes import jtplot
 jtplot.style(context=&#39;paper&#39;, fscale=1.4, spines=False, gridlines=&#39;&#39;)
@@ -202,7 +187,6 @@ print(&#39;Accuracy: {:.2f}%\n&#39;.format(df.Correct.mean()*100))
 plot_confusion_matrix(lab, pred, classes=classes, normalize=True, title=&#39; &#39;, figsize=(6,6))
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;Accuracy: 65.53%
 
 Normalized confusion matrix
@@ -211,11 +195,8 @@ Normalized confusion matrix
  [0.45833333 0.54166667 0.         0.        ]
  [0.7        0.26315789 0.         0.03684211]]
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_10_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_10_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;solve-svm-with-rbf-kernel&#34;&gt;Solve SVM with RBF kernel&lt;/h2&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.svm import SVC
 clf = SVC(gamma=&#39;auto&#39;, probability=True)
 label = b.argmax(1)
@@ -230,7 +211,6 @@ classes = list(action_to_class.keys())
 plot_confusion_matrix(label, pred, classes=classes, normalize=True, title=&#39; &#39;, figsize=(6,6))
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;0.932067932067932
 Normalized confusion matrix
 [[0.9826087  0.00869565 0.         0.00869565]
@@ -238,13 +218,9 @@ Normalized confusion matrix
  [0.41666667 0.45833333 0.10416667 0.02083333]
  [0.04736842 0.02105263 0.         0.93157895]]
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_12_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_12_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;comparison-of-optimizers-for-a-deep-model&#34;&gt;Comparison of Optimizers for a Deep Model&lt;/h2&gt;
-
 &lt;h3 id=&#34;train&#34;&gt;Train&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from blackjacksim.entities import Deck, Hand
 from blackjacksim.strategies import basic
 import itertools
@@ -346,7 +322,6 @@ for _ in tnrange(1, position=0):
 
         
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;pre&gt;&lt;code&gt;1001
 
 
@@ -369,9 +344,7 @@ HBox(children=(IntProgress(value=0, max=1000), HTML(value=&#39;&#39;)))
 
 HBox(children=(IntProgress(value=0, max=1000), HTML(value=&#39;&#39;)))
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;plot-loss-and-accuracy&#34;&gt;Plot loss and accuracy&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import matplotlib
 %matplotlib inline
 from matplotlib import pyplot as plt
@@ -398,22 +371,16 @@ classes = list(action_to_class.keys())
 plot_confusion_matrix(label.cpu(), pred.cpu(), classes=classes, normalize=True, title=&#39; &#39;, figsize=(6,6))
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_1.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Normalized confusion matrix
 [[1. 0. 0. 0.]
  [0. 1. 0. 0.]
  [0. 0. 1. 0.]
  [0. 0. 0. 1.]]
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_3.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;visualization-of-a-rbf-and-deep-model-representations&#34;&gt;Visualization of A, RBF, and Deep Model representations&lt;/h2&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.decomposition import PCA
 a = A.cpu().detach().numpy()
 pca = PCA(2)
@@ -450,8 +417,7 @@ ax[1].set_title(&#39;RBF Kernel&#39;)
 fig.legend([&#39;Hit&#39;,&#39;Stand&#39;,&#39;Split&#39;,&#39;Double&#39;], bbox_to_anchor=[0.39, 0.05],  loc=&#39;center&#39;, ncol=4)
 plt.show()
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_19_0.png&#34; alt=&#34;png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     

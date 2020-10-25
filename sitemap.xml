@@ -3,38 +3,133 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://charlielehman.github.io/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/courses/example/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+    <loc>https://charlielehman.github.io/authors/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://charlielehman.github.io/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://charlielehman.github.io/talk/example/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <loc>https://charlielehman.github.io/author/charlie-lehman/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/author/ghassan-alregib/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tag/icip/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://charlielehman.github.io/talk/</loc>
-    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/talk/icip2020-robustness-and-overfitting/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/author/shirley-liu/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tag/special-session/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tags/</loc>
+    <lastmod>2020-10-28T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/author/can-temel/</loc>
+    <lastmod>2020-10-27T09:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/talk/icip2020-on-the-structures/</loc>
+    <lastmod>2020-10-27T09:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tag/machine-learning/</loc>
+    <lastmod>2020-10-27T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/author/moamen-soliman/</loc>
+    <lastmod>2020-10-27T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/talk/icip2020-s6/</loc>
+    <lastmod>2020-10-27T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tag/semantic-segmentation/</loc>
+    <lastmod>2020-10-27T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/post/on-the-structures-of-representation/</loc>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://charlielehman.github.io/post/</loc>
-    <lastmod>2019-12-09T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication-type/1/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/author/dogancan-temel/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/tag/implicit-background-estimation/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication/on-the-structures-of-representation/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication_types/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication/robustness-and-overfitting/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/publication/s6/</loc>
+    <lastmod>2020-10-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -48,52 +143,7 @@
   </url>
   
   <url>
-    <loc>https://charlielehman.github.io/authors/admin/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/publication_types/1/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/authors/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/authors/dogancan-temel/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/authors/ghassan-alregib/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/publication_types/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/publication/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/tags/source-themes/</loc>
-    <lastmod>2019-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/tags/</loc>
     <lastmod>2019-09-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -108,28 +158,13 @@
   </url>
   
   <url>
-    <loc>https://charlielehman.github.io/tags/class-project/</loc>
-    <lastmod>2019-02-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/tags/machine-learning/</loc>
+    <loc>https://charlielehman.github.io/tag/class-project/</loc>
     <lastmod>2019-02-27T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://charlielehman.github.io/project/</loc>
     <lastmod>2019-02-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/slides/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/slides/example/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -148,16 +183,17 @@
   </url>
   
   <url>
-    <loc>https://charlielehman.github.io/authors/robert-j.-barsanti/</loc>
+    <loc>https://charlielehman.github.io/tag/digital-signal-processing/</loc>
+    <lastmod>2008-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charlielehman.github.io/author/robert-j.-barsanti/</loc>
     <lastmod>2008-03-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://charlielehman.github.io/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://charlielehman.github.io/courses/</loc>
   </url>
   
 </urlset>

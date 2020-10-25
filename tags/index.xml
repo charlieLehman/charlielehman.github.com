@@ -5,36 +5,12 @@
     <link>https://charlielehman.github.io/tags/</link>
       <atom:link href="https://charlielehman.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <description>Tags</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 01 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 28 Oct 2020 08:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://charlielehman.github.io/img/icon-192.png</url>
+      <url>https://charlielehman.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
       <title>Tags</title>
       <link>https://charlielehman.github.io/tags/</link>
     </image>
-    
-    <item>
-      <title>Source Themes</title>
-      <link>https://charlielehman.github.io/tags/source-themes/</link>
-      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://charlielehman.github.io/tags/source-themes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Class Project</title>
-      <link>https://charlielehman.github.io/tags/class-project/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://charlielehman.github.io/tags/class-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Machine Learning</title>
-      <link>https://charlielehman.github.io/tags/machine-learning/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://charlielehman.github.io/tags/machine-learning/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

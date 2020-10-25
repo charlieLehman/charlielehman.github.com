@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning | Charlie Lehman</title>
+    <link>https://charlielehman.github.io/tag/machine-learning/</link>
+      <atom:link href="https://charlielehman.github.io/tag/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <description>Machine Learning</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 27 Oct 2020 09:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://charlielehman.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Machine Learning</title>
+      <link>https://charlielehman.github.io/tag/machine-learning/</link>
+    </image>
+    
+    <item>
+      <title>S6:Semi-Supervised Self-Supervised Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/talk/icip2020-s6/</link>
+      <pubDate>Tue, 27 Oct 2020 09:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/talk/icip2020-s6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>On the Structures of Representation for the Robustness of Semantic Segmentation to Input Corruption</title>
+      <link>https://charlielehman.github.io/publication/on-the-structures-of-representation/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/on-the-structures-of-representation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S6:Semi-Supervised Self-Supervised Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/publication/s6/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/s6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implicit Background Estimation for Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blackjack Simulator</title>
+      <link>https://charlielehman.github.io/project/card-counting/</link>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/project/card-counting/</guid>
+      <description>&lt;p&gt;I worked with Gukyeong Kwon and Jinsol Lee on this project for our Convex Optimization course.  It was a neat project that really hits home that even if you can count cards perfectly&amp;hellip;the deck isn&amp;rsquo;t stacked in your favor.  If you want to try it the code is linked above or if you want to run blackjacksim directly install it with:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pip3 install git+https://github.com/charlieLehman/blackjacksim
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;tools&#34;&gt;Tools&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.metrics import confusion_matrix
+from sklearn.utils.multiclass import unique_labels
+import matplotlib
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+%matplotlib inline
+from matplotlib import pyplot as plt
+
+def plot_confusion_matrix(y_true, y_pred, classes,
+                          normalize=False,
+                          title=None,
+                          cmap=plt.cm.Blues,
+                         **kwargs):
+    &amp;quot;&amp;quot;&amp;quot;
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    &amp;quot;&amp;quot;&amp;quot;
+    if not title:
+        if normalize:
+            title = &#39;Normalized confusion matrix&#39;
+        else:
+            title = &#39;Confusion matrix, without normalization&#39;
+
+    # Compute confusion matrix
+    cm = confusion_matrix(y_true, y_pred)
+    # Only use the labels that appear in the data
+    #classes = classes[unique_labels(y_true, y_pred)]
+    if normalize:
+        cm = cm.astype(&#39;float&#39;) / cm.sum(axis=1)[:, np.newaxis]
+        print(&amp;quot;Normalized confusion matrix&amp;quot;)
+    else:
+        print(&#39;Confusion matrix, without normalization&#39;)
+
+    print(cm)
+
+    fig, ax = plt.subplots(**kwargs)
+    im = ax.imshow(cm, interpolation=&#39;nearest&#39;, cmap=cmap)
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes(&amp;quot;right&amp;quot;, size=&amp;quot;5%&amp;quot;, pad=0.05)
+    ax.figure.colorbar(im, cax=cax)
+    # We want to show all ticks...
+    ax.set(xticks=np.arange(cm.shape[1]),
+           yticks=np.arange(cm.shape[0]),
+           # ... and label them with the respective list entries
+           xticklabels=classes, yticklabels=classes,
+           ylabel=&#39;True label&#39;,
+           xlabel=&#39;Predicted label&#39;)
+
+    # Rotate the tick labels and set their alignment.
+    plt.setp(ax.get_xticklabels(), rotation=45, ha=&amp;quot;right&amp;quot;,
+             rotation_mode=&amp;quot;anchor&amp;quot;)
+
+    # Loop over data dimensions and create text annotations.
+    fmt = &#39;.2f&#39; if normalize else &#39;d&#39;
+    thresh = cm.max() / 2.
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(j, i, format(cm[i, j], fmt),
+                    ha=&amp;quot;center&amp;quot;, va=&amp;quot;center&amp;quot;,
+                    color=&amp;quot;white&amp;quot; if cm[i, j] &amp;gt; thresh else &amp;quot;black&amp;quot;)
+            
+
+    
+    fig.tight_layout()
+    return ax
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;comparison-of-house-rules&#34;&gt;Comparison of House Rules&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from blackjacksim.simulations import Game
+from blackjacksim.entities import Shoe
+import matplotlib
+%matplotlib inline
+from tqdm import tnrange
+from tqdm import tqdm_notebook as tqdm
+from matplotlib import pyplot as plt
+import seaborn as sns
+import pandas as pd
+from jupyterthemes import jtplot
+jtplot.style(context=&#39;poster&#39;, fscale=1.4, spines=False, gridlines=&#39;--&#39;)
+
+from blackjacksim.data import DefaultGameConfig
+_def_conf = DefaultGameConfig()
+def config(house_rules):
+    _def_conf[&#39;house&#39;][&#39;class&#39;] = house_rules
+    return _def_conf
+
+try:
+    df = df
+except:
+    df = None
+    
+pbar = tqdm([&#39;Blackjack32&#39;, &#39;Blackjack65&#39;, &#39;Blackjack32NoSplit&#39;, &#39;Blackjack65NoSplit&#39;])
+trials = 100
+rounds = 100
+for house in pbar:
+    for i in range(trials):
+        pbar.set_description(&amp;quot;{} {:04d}/{:04d}: &amp;quot;.format(house,i,trials-1))
+        g = Game(config(house))
+        for _ in range(rounds):
+            g.round()
+        if df is None:
+            df = g.data 
+        else:
+            df = pd.concat([df,g.data]) 
+        
+sns.lineplot(x=&#39;Round&#39;, y=&#39;Pool&#39;, hue=&#39;House&#39;, data=df)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;HBox(children=(IntProgress(value=0, max=4), HTML(value=&#39;&#39;)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_5_2.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;modeling-action-strategy&#34;&gt;Modeling Action Strategy&lt;/h1&gt;
+&lt;h2 id=&#34;build-board-state-matrix-a-and-action-vector-b&#34;&gt;Build board state matrix A and action vector b&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from blackjacksim.entities import Deck, Hand
+from blackjacksim.strategies import basic
+import itertools
+import numpy as np
+import pandas as pd
+
+action_to_class = {&#39;Hit&#39;:[1,0,0,0],&#39;Stand&#39;:[0,1,0,0],&#39;Split&#39;:[0,0,1,0],&#39;Double&#39;:[0.0,0,0,1]}
+
+hands = [Hand(h) for h in itertools.product(Deck(),Deck())]
+dups = Deck()
+
+t = []
+for hand, dup  in itertools.product(hands, dups):
+    tup = tuple(c.value for c in (*hand,dup))
+    c = (tup, basic(hand,dup))
+    if c not in t:
+        t.append(c)
+print(len(t))
+A = []
+b = []
+for  a, _b in t:
+    A.append(a)
+    b.append(action_to_class[_b])
+    
+A = np.stack(A)
+b = np.array(b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;1001
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;solve-least-squares&#34;&gt;Solve Least Squares&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import seaborn as sns
+from jupyterthemes import jtplot
+jtplot.style(context=&#39;paper&#39;, fscale=1.4, spines=False, gridlines=&#39;&#39;)
+
+A_ = np.concatenate([A, np.ones((A.shape[0],1))],1)
+Ai = np.linalg.pinv(A_)
+x = Ai@b
+out = A_@x
+pred = np.argmax(out,1)
+lab = np.argmax(b,1)
+
+lab_to_class = list(action_to_class.keys())
+l2c = lambda x: lab_to_class[x]
+
+df = pd.DataFrame({&#39;Prediction&#39;:pred, &#39;Label&#39;:lab,&#39;HandSum&#39;:A[:,0:-1].sum(1), &#39;Hand&#39;:[a[0:-1] for a in A], &#39;Up Card&#39;:[a[-1] for a in A]})
+df[&#39;Label Name&#39;] = df.Label.apply(l2c)
+df[&#39;Prediction Name&#39;] = df.Prediction.apply(l2c)
+df[&#39;Correct&#39;] = df.Prediction == df.Label
+
+# Plot normalized confusion matrix
+classes = list(action_to_class.keys())
+print(&#39;Accuracy: {:.2f}%\n&#39;.format(df.Correct.mean()*100))
+plot_confusion_matrix(lab, pred, classes=classes, normalize=True, title=&#39; &#39;, figsize=(6,6))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;Accuracy: 65.53%
+
+Normalized confusion matrix
+[[0.82826087 0.14782609 0.         0.02391304]
+ [0.11551155 0.88448845 0.         0.        ]
+ [0.45833333 0.54166667 0.         0.        ]
+ [0.7        0.26315789 0.         0.03684211]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_10_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;solve-svm-with-rbf-kernel&#34;&gt;Solve SVM with RBF kernel&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.svm import SVC
+clf = SVC(gamma=&#39;auto&#39;, probability=True)
+label = b.argmax(1)
+clf.fit(A,label)
+print(clf.score(A,label))
+pred = clf.predict(A)
+
+vals = clf.decision_function(A)
+probs = clf.predict_proba(A)
+
+classes = list(action_to_class.keys())
+plot_confusion_matrix(label, pred, classes=classes, normalize=True, title=&#39; &#39;, figsize=(6,6))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;0.932067932067932
+Normalized confusion matrix
+[[0.9826087  0.00869565 0.         0.00869565]
+ [0.00660066 0.98679868 0.         0.00660066]
+ [0.41666667 0.45833333 0.10416667 0.02083333]
+ [0.04736842 0.02105263 0.         0.93157895]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_12_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;comparison-of-optimizers-for-a-deep-model&#34;&gt;Comparison of Optimizers for a Deep Model&lt;/h2&gt;
+&lt;h3 id=&#34;train&#34;&gt;Train&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from blackjacksim.entities import Deck, Hand
+from blackjacksim.strategies import basic
+import itertools
+import numpy as np
+import pandas as pd
+import torch
+from torch import nn
+from tqdm import tnrange
+
+
+# Build A (Hand and Dealer&#39;s Up Card) and b (basic strategy Action)
+action_to_class = {&#39;Hit&#39;:[1,0,0,0],&#39;Stand&#39;:[0,1,0,0],&#39;Split&#39;:[0,0,1,0],&#39;Double&#39;:[0.0,0,0,1]}
+
+hands = [Hand(h) for h in itertools.product(Deck(),Deck())]
+dups = Deck()
+
+t = []
+for hand, dup  in itertools.product(hands, dups):
+    tup = tuple(c.value for c in (*hand,dup))
+    c = (tup, basic(hand,dup))
+    if c not in t:
+        t.append(c)
+print(len(t))
+A = []
+b = []
+for  a, _b in t:
+    A.append(a)
+    b.append(action_to_class[_b])
+    
+A = np.stack(A)
+b = np.array(b)
+
+A = torch.from_numpy(A).float()
+b = torch.from_numpy(b).float()
+
+# Build Deep Model
+class DeepBasicStrategy(nn.Module):
+    def __init__(self):
+        super(DeepBasicStrategy, self).__init__()
+        block = lambda i, o: nn.Sequential(
+            nn.Linear(i,o),
+            nn.BatchNorm1d(o),
+            nn.ReLU(),
+            nn.Dropout(),
+        )
+
+        _model = []
+        for i,o in [(3,2000), (2000,2000), (2000,1000), (1000,500), (500,250)]:
+            _model.append(block(i,o))
+        _model.append(nn.Linear(250,4))
+        self.neural_net = nn.Sequential(*_model)
+    def forward(self, x):
+        return self.neural_net(x)
+
+A = A.cuda()
+b = b.cuda()
+
+# Train Deep Model
+criterion = nn.BCEWithLogitsLoss()
+train_log = []
+for _ in tnrange(1, position=0):
+    for opt_name in [&#39;SGD&#39;, &#39;SGD w/ momentum&#39;, &#39;SGD w/ Nesterov momentum&#39;, &#39;Adam&#39;]:
+        model = DeepBasicStrategy()
+        model = model.cuda()
+        closure = None
+        if opt_name == &#39;SGD&#39;:
+            optimizer = torch.optim.SGD(model.parameters(), lr=1.0)
+        elif opt_name == &#39;SGD w/ momentum&#39;:
+            optimizer = torch.optim.SGD(model.parameters(), lr=1.0, momentum=0.9)
+        elif opt_name == &#39;SGD w/ Nesterov momentum&#39;:
+            optimizer = torch.optim.SGD(model.parameters(), lr=1.0, momentum=0.9, nesterov=True)
+        elif opt_name == &#39;Adam&#39;:
+            optimizer = torch.optim.Adam(model.parameters())
+        elif opt_name == &#39;LBFGS&#39;:
+            optimizer = torch.optim.LBFGS(model.parameters(), lr=1.0)#, history_size=100, max_iter=3, max_eval=4)
+            closure = lambda: criterion(model(A),b)
+        tbar = tnrange(1000, position=1)
+        for step in tbar:
+            optimizer.zero_grad()
+            model.train()
+            out = model(A)
+            loss = criterion(out, b)
+            model.eval()
+            out = model(A)
+            pred = out.argmax(1)
+            label = b.argmax(1)
+            acc = (pred==label).float().mean().item()
+            tbar.set_description(&amp;quot;BCE Loss: {:.3f} Acc: {:.3f}&amp;quot;.format(loss.item(), acc))
+            loss.backward()
+            optimizer.step(closure)
+            train_log.append(
+                {
+                    &#39;Optimizer&#39;:opt_name,
+                    &#39;Step&#39;:step,
+                    &#39;Accuracy&#39;:acc,
+                    &#39;Loss&#39;:loss.item(),
+                }
+            )
+
+        
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;1001
+
+
+
+HBox(children=(IntProgress(value=0, max=1), HTML(value=&#39;&#39;)))
+
+
+
+HBox(children=(IntProgress(value=0, max=1000), HTML(value=&#39;&#39;)))
+
+
+
+HBox(children=(IntProgress(value=0, max=1000), HTML(value=&#39;&#39;)))
+
+
+
+HBox(children=(IntProgress(value=0, max=1000), HTML(value=&#39;&#39;)))
+
+
+
+HBox(children=(IntProgress(value=0, max=1000), HTML(value=&#39;&#39;)))
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;plot-loss-and-accuracy&#34;&gt;Plot loss and accuracy&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import matplotlib
+%matplotlib inline
+from matplotlib import pyplot as plt
+import seaborn as sns
+from jupyterthemes import jtplot
+
+train_df = pd.DataFrame(train_log)
+train_df[&#39;Error&#39;] = 1-train_df.Accuracy
+# set &amp;quot;context&amp;quot; (paper, notebook, talk, poster)
+# scale font-size of ticklabels, legend, etc.
+# remove spines from x and y axes and make grid dashed
+jtplot.style(context=&#39;paper&#39;, fscale=1.4, spines=False, gridlines=&#39;--&#39;)
+fig,ax = plt.subplots(1, figsize=(7, 5))
+ax.set(yscale=&#39;log&#39;)
+sns.lineplot(x=&#39;Step&#39;, y=&#39;Loss&#39;, hue=&#39;Optimizer&#39;, data=train_df, ax=ax)
+plt.show()
+fig,ax = plt.subplots(1, figsize=(7, 5))
+ax.set(ylim=[.6,1.05])
+sns.lineplot(x=&#39;Step&#39;, y=&#39;Accuracy&#39;, hue=&#39;Optimizer&#39;, data=train_df, ax=ax)
+plt.show()
+
+jtplot.style(context=&#39;paper&#39;, fscale=1.4, spines=False, gridlines=&#39;&#39;)
+classes = list(action_to_class.keys())
+plot_confusion_matrix(label.cpu(), pred.cpu(), classes=classes, normalize=True, title=&#39; &#39;, figsize=(6,6))
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Normalized confusion matrix
+[[1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]
+ [0. 0. 0. 1.]]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_17_3.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;visualization-of-a-rbf-and-deep-model-representations&#34;&gt;Visualization of A, RBF, and Deep Model representations&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.decomposition import PCA
+a = A.cpu().detach().numpy()
+pca = PCA(2)
+y = pca.fit_transform(a)
+l = label.cpu().detach().numpy()
+p = pred.cpu().detach().numpy()
+X = out.cpu().detach().numpy()
+fig, ax = plt.subplots(1,3, figsize=(15,5))
+ax[0].scatter(y[l==0,0], y[l==0,1], label=&#39;Hit&#39;)
+ax[0].scatter(y[l==1,0], y[l==1,1], label=&#39;Stand&#39;)
+ax[0].scatter(y[l==2,0], y[l==2,1], label=&#39;Split&#39;)
+ax[0].scatter(y[l==3,0], y[l==3,1], label=&#39;Double&#39;)
+ax[0].set_xticks([])
+ax[0].set_yticks([])
+ax[0].set_title(&#39;Raw&#39;)
+pca = PCA(2)
+y = pca.fit_transform(X)
+ax[2].scatter(y[l==0,0], y[l==0,1], label=&#39;Hit&#39;)
+ax[2].scatter(y[l==1,0], y[l==1,1], label=&#39;Stand&#39;)
+ax[2].scatter(y[l==2,0], y[l==2,1], label=&#39;Split&#39;)
+ax[2].scatter(y[l==3,0], y[l==3,1], label=&#39;Double&#39;)
+ax[2].set_xticks([])
+ax[2].set_yticks([])
+ax[2].set_title(&#39;Deep Model&#39;)
+pca = PCA(2)
+y = pca.fit_transform(vals)
+hit = ax[1].scatter(y[l==0,0], y[l==0,1], label=&#39;Hit&#39;)
+stand = ax[1].scatter(y[l==1,0], y[l==1,1], label=&#39;Stand&#39;)
+split = ax[1].scatter(y[l==2,0], y[l==2,1], label=&#39;Split&#39;)
+double = ax[1].scatter(y[l==3,0], y[l==3,1], label=&#39;Double&#39;)
+ax[1].set_xticks([])
+ax[1].set_yticks([])
+ax[1].set_title(&#39;RBF Kernel&#39;)
+fig.legend([&#39;Hit&#39;,&#39;Stand&#39;,&#39;Split&#39;,&#39;Double&#39;], bbox_to_anchor=[0.39, 0.05],  loc=&#39;center&#39;, ncol=4)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;./blackjacksim_project_19_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

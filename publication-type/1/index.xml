@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1 | Charlie Lehman</title>
+    <link>https://charlielehman.github.io/publication-type/1/</link>
+      <atom:link href="https://charlielehman.github.io/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
+    <description>1</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 01 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://charlielehman.github.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>1</title>
+      <link>https://charlielehman.github.io/publication-type/1/</link>
+    </image>
+    
+    <item>
+      <title>On the Structures of Representation for the Robustness of Semantic Segmentation to Input Corruption</title>
+      <link>https://charlielehman.github.io/publication/on-the-structures-of-representation/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/on-the-structures-of-representation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Robustness and Overfitting Behavior of Implicit Background Models</title>
+      <link>https://charlielehman.github.io/publication/robustness-and-overfitting/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/robustness-and-overfitting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S6:Semi-Supervised Self-Supervised Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/publication/s6/</link>
+      <pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/s6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Implicit Background Estimation for Semantic Segmentation</title>
+      <link>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</link>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/implicit-background-estimation-for-semantic-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Application of a Wavelet-Based Receiver for the Coherent Detection of FSK Signals</title>
+      <link>https://charlielehman.github.io/publication/application-of-a-wavelet-based-receiver-for-the-coherent-detection-of-fsk-signals/</link>
+      <pubDate>Sat, 01 Mar 2008 00:00:00 +0000</pubDate>
+      <guid>https://charlielehman.github.io/publication/application-of-a-wavelet-based-receiver-for-the-coherent-detection-of-fsk-signals/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
