@@ -915,7 +915,7 @@ if (!doNotTrack) {
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    18 min read
+    25 min read
   </span>
   
 
@@ -1011,6 +1011,34 @@ if (!doNotTrack) {
 <h3 id="general-imports-and-visualiztion-methods">General Imports and Visualiztion methods</h3>
 <p>We will be importing some of the required libraries here and build out the machinery for visualizing the results of this work.  Of note in <code>colorize_voc_label</code>, is assigning the color white to classes above 20.  This is to account for 255 being used to indicate the &ldquo;ignore&rdquo; class. For <code>visualize</code>, the assumption is the arguments are <code>torch.Tensor</code> instances that are the outputs of our models.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1067,6 +1095,34 @@ if (!doNotTrack) {
 <h3 id="segmentation-transforms">Segmentation Transforms</h3>
 <p>Now we build out the joint transform used during training and validation that is compatible with <code>torchvision.datasets.VOCSegmentation</code>.  This requires the <code>joint_transforms</code> module provided in the above linked code.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1110,6 +1166,34 @@ crop_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">224</
 <h3 id="voc2012">VOC2012</h3>
 <p>Now to put our <code>visualize</code> method to work, we can look at the first image and label pair in the VOC2012 training set.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1129,6 +1213,34 @@ fig, ax <span style="color:#f92672">=</span> visualize(im_,lbl_)</code></pre></d
 <h3 id="sbd">SBD</h3>
 <p>Next, we want to append the VOC2012 training set with the &ldquo;train_noval&rdquo; subset of SBDataset as provided by torchvision to have a total of 7087 training examples. Notice as we visualize an example from SBDataset that they differ in that the transitions from foreground to background is not bordered by the &ldquo;ignore&rdquo; class.</p>
 <p>
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1148,6 +1260,34 @@ fig, ax <span style="color:#f92672">=</span> visualize(im_,lbl_)</code></pre></d
 <h3 id="dataloader">Dataloader</h3>
 <p>Now to bring the datasets together for use in training and validation.  If you will be implementing this yourself, note that we used a batch size of 20, which may exceed the memory available on your GPU.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1176,6 +1316,34 @@ val_iter <span style="color:#f92672">=</span> data<span style="color:#f92672">.<
 <h4 id="corruptions-to-transform">Corruptions to Transform</h4>
 <p>In order to use the machinery in <code>pytorch</code> we wrapped the corruption methods from the <a href="https://pypi.org/project/imagenet-c/" target="_blank" rel="noopener">imagenet-c</a> package in the standard <code>pytorch</code> transform interface. ImageNet-C is part of a collection of work on studying the impacts of corruptions by Dan Hendrycks, Thomas Dietterich, and others. More details can be found on the <a href="https://github.com/hendrycks/robustness" target="_blank" rel="noopener">ImageNet-C Repository</a>.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1239,6 +1407,34 @@ corr_dict <span style="color:#f92672">=</span> {}
 <h4 id="voc-corruptions-4567">VOC Corruptions 4,5,6,7</h4>
 <p>Glass, Motion, Zoom and Snow take a long time for each iteration, so we can gain efficiencies by preprocessing these at all corruption levels.  To do so, use the provided script <code>dump_voc_c.py</code> with the desired corruption number and severity.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1298,6 +1494,34 @@ fig, ax <span style="color:#f92672">=</span> visualize(im,lbl)
 <h4 id="visualize-corruptions">Visualize Corruptions</h4>
 <p>Here&rsquo;s what the different corruption levels look like for a subset of the corruptions.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1353,6 +1577,34 @@ display()</code></pre></div>
 <h3 id="running-confusion-matrix">Running Confusion Matrix</h3>
 <p>This will allow us to get metrics while running through with batches during training or in aggregate across the entire validation set.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1403,6 +1655,34 @@ display()</code></pre></div>
 <h3 id="trainer">Trainer</h3>
 <p>Here is a configurable implementation of a semantic segmentation experiment.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1508,6 +1788,34 @@ display()</code></pre></div>
 <p>Below we prepare three versions of the DeepLab v3+ with ResNet50 backbone: vanilla, Implicit Background Estimation (IBE), and Sigmoid Cross Entropy Implicit Background Estimation (SCrIBE).  Since the  models are trained from an ImageNet pretrained ResNet50, the appropriate layers are replaced and wrapped in an <code>nn.Module</code>. We then train each model using the previously introduced configurable experiment.</p>
 <h3 id="deeplabv3">DeepLabV3+</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1603,6 +1911,34 @@ pth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/D
 
 <h3 id="deeplabv3ibe">DeepLabV3+IBE</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1689,6 +2025,34 @@ pth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/D
 
 <h3 id="deeplabv3scribe">DeepLabV3+ScrIBE</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1775,6 +2139,34 @@ pth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/D
 <h3 id="running-logit-tracker">Running Logit Tracker</h3>
 <p>Much like the Running Confusion Matrix, we will also track the logits or pre-softmax model outputs over a run of batched iterations for later analysis.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1848,6 +2240,34 @@ pth <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;data/D
 <h3 id="run-over-all-corruptions-and-levels">Run over all Corruptions and Levels</h3>
 <p>Here we measure the performance of each model for each corruption at each level.  This also takes a while, but has some progress saving built in.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -1993,6 +2413,34 @@ Case 2: Skipping 14@4
 </code></pre>
 <h3 id="run-validation">Run Validation</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2061,6 +2509,34 @@ s_lt, i_lt, n_lt <span style="color:#f92672">=</span> run_one(scribe_model, ibe_
 <h2 id="dimensionality-analysis">Dimensionality Analysis</h2>
 <h3 id="explained-variance">Explained Variance</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2106,6 +2582,34 @@ sns<span style="color:#f92672">.</span>lineplot(ax<span style="color:#f92672">=<
 <p><img src="index_43_1.png" alt="png"></p>
 <h2 id="structural-analysis">Structural Analysis</h2>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2185,6 +2689,34 @@ fig<span style="color:#f92672">.</span>colorbar(im, cax<span style="color:#f9267
 <p><img src="index_44_1.png" alt="png"></p>
 <p><img src="index_44_4.png" alt="png"></p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2229,6 +2761,34 @@ plt<span style="color:#f92672">.</span>show()</code></pre></div>
 <h2 id="qualitative-result-visualizations">Qualitative Result Visualizations</h2>
 <h3 id="make-a-list-of-images-from-validation-set">Make a list of images from Validation set</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2267,6 +2827,34 @@ val_set_list <span style="color:#f92672">=</span> []
 
 <h3 id="render-100-of-them-starting-at-some-index">Render 100 of them starting at some index</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2302,6 +2890,34 @@ plt<span style="color:#f92672">.</span>show()</code></pre></div>
 <h3 id="generate-results-to-visualize">Generate Results to Visualize</h3>
 <p>Here we pick one from the group above and collect outputs for all models and corruptions at 3 levels for visualization. Crop top and crop bottom allow for adjusting the very tall figure.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2363,6 +2979,34 @@ sv_list <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">0
 <h3 id="visualize-that-collections">Visualize that collections</h3>
 <p>This is the visualization code used to generate a figure in the paper.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2467,6 +3111,34 @@ display()</code></pre></div>
 <p><img src="index_50_0.png" alt="png"></p>
 <h3 id="performance-comparison-plot">Performance Comparison Plot</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2500,6 +3172,34 @@ sns<span style="color:#f92672">.</span>lineplot(x<span style="color:#f92672">=</
 <h3 id="load-the-video">Load the video</h3>
 <p>Here we provide the code that was used to produce the introduction demo that was used in the presentation video.
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2514,6 +3214,34 @@ videodata <span style="color:#f92672">=</span> skvideo<span style="color:#f92672
 </p>
 <h3 id="prepare-the-corrupting-transform">Prepare the corrupting transform</h3>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2559,6 +3287,34 @@ videodata <span style="color:#f92672">=</span> skvideo<span style="color:#f92672
 <h3 id="generate-the-demo-video">Generate the demo video</h3>
 <p>Here we equally divide the frames amongst corruptions and processing them through SCrIBE and the baseline models.</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2612,6 +3368,34 @@ s_preds <span style="color:#f92672">=</span> np<span style="color:#f92672">.</sp
 <h3 id="animate">Animate</h3>
 <p>This takes a while. I am sure there is a faster way&hellip;</p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2662,6 +3446,34 @@ ani <span style="color:#f92672">=</span> animation<span style="color:#f92672">.<
 </code></pre>
 <p><img src="index_58_1.png" alt="png"></p>
 
+<style>
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+</style>
 <span class="expand">
     <span class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-fas fa-chevron-right';});});">
         show code
@@ -2675,7 +3487,7 @@ ani<span style="color:#f92672">.</span>save(f<span style="color:#e6db74">&#39;ex
     </div>
 </span>
 
-<p>Thank you for making it to the bottom of this post.  I hope you</p>
+<p>Thank you for making it to the bottom of this post.  I hope you will feel more comfortable reproducing our work.  Please feel free to contact me with any questions or comments.</p>
 
     </div>
 
@@ -3052,6 +3864,16 @@ ani<span style="color:#f92672">.</span>save(f<span style="color:#e6db74">&#39;ex
   
   <div class="container">
     <footer class="site-footer">
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
   
 
   <p class="powered-by">

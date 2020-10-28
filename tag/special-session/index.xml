@@ -38,6 +38,34 @@
 &lt;h3 id=&#34;general-imports-and-visualiztion-methods&#34;&gt;General Imports and Visualiztion methods&lt;/h3&gt;
 &lt;p&gt;We will be importing some of the required libraries here and build out the machinery for visualizing the results of this work.  Of note in &lt;code&gt;colorize_voc_label&lt;/code&gt;, is assigning the color white to classes above 20.  This is to account for 255 being used to indicate the &amp;ldquo;ignore&amp;rdquo; class. For &lt;code&gt;visualize&lt;/code&gt;, the assumption is the arguments are &lt;code&gt;torch.Tensor&lt;/code&gt; instances that are the outputs of our models.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -94,6 +122,34 @@
 &lt;h3 id=&#34;segmentation-transforms&#34;&gt;Segmentation Transforms&lt;/h3&gt;
 &lt;p&gt;Now we build out the joint transform used during training and validation that is compatible with &lt;code&gt;torchvision.datasets.VOCSegmentation&lt;/code&gt;.  This requires the &lt;code&gt;joint_transforms&lt;/code&gt; module provided in the above linked code.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -137,6 +193,34 @@ crop_size &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;h3 id=&#34;voc2012&#34;&gt;VOC2012&lt;/h3&gt;
 &lt;p&gt;Now to put our &lt;code&gt;visualize&lt;/code&gt; method to work, we can look at the first image and label pair in the VOC2012 training set.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -156,6 +240,34 @@ fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; visualize(im_,l
 &lt;h3 id=&#34;sbd&#34;&gt;SBD&lt;/h3&gt;
 &lt;p&gt;Next, we want to append the VOC2012 training set with the &amp;ldquo;train_noval&amp;rdquo; subset of SBDataset as provided by torchvision to have a total of 7087 training examples. Notice as we visualize an example from SBDataset that they differ in that the transitions from foreground to background is not bordered by the &amp;ldquo;ignore&amp;rdquo; class.&lt;/p&gt;
 &lt;p&gt;
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -175,6 +287,34 @@ fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; visualize(im_,l
 &lt;h3 id=&#34;dataloader&#34;&gt;Dataloader&lt;/h3&gt;
 &lt;p&gt;Now to bring the datasets together for use in training and validation.  If you will be implementing this yourself, note that we used a batch size of 20, which may exceed the memory available on your GPU.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -203,6 +343,34 @@ val_iter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; data&lt;span s
 &lt;h4 id=&#34;corruptions-to-transform&#34;&gt;Corruptions to Transform&lt;/h4&gt;
 &lt;p&gt;In order to use the machinery in &lt;code&gt;pytorch&lt;/code&gt; we wrapped the corruption methods from the &lt;a href=&#34;https://pypi.org/project/imagenet-c/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;imagenet-c&lt;/a&gt; package in the standard &lt;code&gt;pytorch&lt;/code&gt; transform interface. ImageNet-C is part of a collection of work on studying the impacts of corruptions by Dan Hendrycks, Thomas Dietterich, and others. More details can be found on the &lt;a href=&#34;https://github.com/hendrycks/robustness&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ImageNet-C Repository&lt;/a&gt;.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -266,6 +434,34 @@ corr_dict &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
 &lt;h4 id=&#34;voc-corruptions-4567&#34;&gt;VOC Corruptions 4,5,6,7&lt;/h4&gt;
 &lt;p&gt;Glass, Motion, Zoom and Snow take a long time for each iteration, so we can gain efficiencies by preprocessing these at all corruption levels.  To do so, use the provided script &lt;code&gt;dump_voc_c.py&lt;/code&gt; with the desired corruption number and severity.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -325,6 +521,34 @@ fig, ax &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; visualize(im,lb
 &lt;h4 id=&#34;visualize-corruptions&#34;&gt;Visualize Corruptions&lt;/h4&gt;
 &lt;p&gt;Here&amp;rsquo;s what the different corruption levels look like for a subset of the corruptions.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -380,6 +604,34 @@ display()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&#34;running-confusion-matrix&#34;&gt;Running Confusion Matrix&lt;/h3&gt;
 &lt;p&gt;This will allow us to get metrics while running through with batches during training or in aggregate across the entire validation set.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -430,6 +682,34 @@ display()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&#34;trainer&#34;&gt;Trainer&lt;/h3&gt;
 &lt;p&gt;Here is a configurable implementation of a semantic segmentation experiment.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -535,6 +815,34 @@ display()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Below we prepare three versions of the DeepLab v3+ with ResNet50 backbone: vanilla, Implicit Background Estimation (IBE), and Sigmoid Cross Entropy Implicit Background Estimation (SCrIBE).  Since the  models are trained from an ImageNet pretrained ResNet50, the appropriate layers are replaced and wrapped in an &lt;code&gt;nn.Module&lt;/code&gt;. We then train each model using the previously introduced configurable experiment.&lt;/p&gt;
 &lt;h3 id=&#34;deeplabv3&#34;&gt;DeepLabV3+&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -630,6 +938,34 @@ pth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34
 
 &lt;h3 id=&#34;deeplabv3ibe&#34;&gt;DeepLabV3+IBE&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -716,6 +1052,34 @@ pth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34
 
 &lt;h3 id=&#34;deeplabv3scribe&#34;&gt;DeepLabV3+ScrIBE&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -802,6 +1166,34 @@ pth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34
 &lt;h3 id=&#34;running-logit-tracker&#34;&gt;Running Logit Tracker&lt;/h3&gt;
 &lt;p&gt;Much like the Running Confusion Matrix, we will also track the logits or pre-softmax model outputs over a run of batched iterations for later analysis.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -875,6 +1267,34 @@ pth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34
 &lt;h3 id=&#34;run-over-all-corruptions-and-levels&#34;&gt;Run over all Corruptions and Levels&lt;/h3&gt;
 &lt;p&gt;Here we measure the performance of each model for each corruption at each level.  This also takes a while, but has some progress saving built in.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1020,6 +1440,34 @@ Case 2: Skipping 14@4
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;run-validation&#34;&gt;Run Validation&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1088,6 +1536,34 @@ s_lt, i_lt, n_lt &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; run_on
 &lt;h2 id=&#34;dimensionality-analysis&#34;&gt;Dimensionality Analysis&lt;/h2&gt;
 &lt;h3 id=&#34;explained-variance&#34;&gt;Explained Variance&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1133,6 +1609,34 @@ sns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lineplot(ax&lt;span s
 &lt;p&gt;&lt;img src=&#34;index_43_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;structural-analysis&#34;&gt;Structural Analysis&lt;/h2&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1212,6 +1716,34 @@ fig&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;colorbar(im, cax&lt;s
 &lt;p&gt;&lt;img src=&#34;index_44_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;index_44_4.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1256,6 +1788,34 @@ plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;show()&lt;/code&gt;&l
 &lt;h2 id=&#34;qualitative-result-visualizations&#34;&gt;Qualitative Result Visualizations&lt;/h2&gt;
 &lt;h3 id=&#34;make-a-list-of-images-from-validation-set&#34;&gt;Make a list of images from Validation set&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1294,6 +1854,34 @@ val_set_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
 
 &lt;h3 id=&#34;render-100-of-them-starting-at-some-index&#34;&gt;Render 100 of them starting at some index&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1329,6 +1917,34 @@ plt&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;show()&lt;/code&gt;&l
 &lt;h3 id=&#34;generate-results-to-visualize&#34;&gt;Generate Results to Visualize&lt;/h3&gt;
 &lt;p&gt;Here we pick one from the group above and collect outputs for all models and corruptions at 3 levels for visualization. Crop top and crop bottom allow for adjusting the very tall figure.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1390,6 +2006,34 @@ sv_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; range(&lt;span 
 &lt;h3 id=&#34;visualize-that-collections&#34;&gt;Visualize that collections&lt;/h3&gt;
 &lt;p&gt;This is the visualization code used to generate a figure in the paper.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1494,6 +2138,34 @@ display()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;img src=&#34;index_50_0.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;performance-comparison-plot&#34;&gt;Performance Comparison Plot&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1527,6 +2199,34 @@ sns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lineplot(x&lt;span st
 &lt;h3 id=&#34;load-the-video&#34;&gt;Load the video&lt;/h3&gt;
 &lt;p&gt;Here we provide the code that was used to produce the introduction demo that was used in the presentation video.
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1541,6 +2241,34 @@ videodata &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; skvideo&lt;sp
 &lt;/p&gt;
 &lt;h3 id=&#34;prepare-the-corrupting-transform&#34;&gt;Prepare the corrupting transform&lt;/h3&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1586,6 +2314,34 @@ videodata &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; skvideo&lt;sp
 &lt;h3 id=&#34;generate-the-demo-video&#34;&gt;Generate the demo video&lt;/h3&gt;
 &lt;p&gt;Here we equally divide the frames amongst corruptions and processing them through SCrIBE and the baseline models.&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1639,6 +2395,34 @@ s_preds &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; np&lt;span styl
 &lt;h3 id=&#34;animate&#34;&gt;Animate&lt;/h3&gt;
 &lt;p&gt;This takes a while. I am sure there is a faster way&amp;hellip;&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1689,6 +2473,34 @@ ani &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; animation&lt;span s
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;index_58_1.png&#34; alt=&#34;png&#34;&gt;&lt;/p&gt;
 
+&lt;style&gt;
+ .definition {
+     visibility: hidden;
+     width: 120px;
+     background-color: #555;
+     color: #fff;
+     text-align: center;
+     border-radius: 6px;
+     padding: 5px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 125%;
+     left: 50%;
+     margin-left: -60px;
+     opacity: 0;
+     transition: opacity 0.3s;
+ }
+ 
+ .term {
+     position: relative;
+     display: inline-block;
+     border-bottom: 1px dotted black;}
+ 
+ .term:hover .definition {
+     visibility: visible;
+     opacity: 1;
+ }
+&lt;/style&gt;
 &lt;span class=&#34;expand&#34;&gt;
     &lt;span class=&#34;expand-label&#34; style=&#34;cursor: pointer;&#34; onclick=&#34;$h = $(this);$h.next(&#39;div&#39;).slideToggle(100,function () {$h.children(&#39;i&#39;).attr(&#39;class&#39;,function () {return $h.next(&#39;div&#39;).is(&#39;:visible&#39;) ? &#39;fas fa-chevron-down&#39; : &#39;fas fa-fas fa-chevron-right&#39;;});});&#34;&gt;
         show code
@@ -1702,7 +2514,7 @@ ani&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;save(f&lt;span style=
     &lt;/div&gt;
 &lt;/span&gt;
 
-&lt;p&gt;Thank you for making it to the bottom of this post.  I hope you&lt;/p&gt;
+&lt;p&gt;Thank you for making it to the bottom of this post.  I hope you will feel more comfortable reproducing our work.  Please feel free to contact me with any questions or comments.&lt;/p&gt;
 </description>
     </item>
     
